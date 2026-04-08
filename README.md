@@ -1,25 +1,32 @@
-# 🔐 Chiffrement de Vigenère
+# 🔐 Chiffrement et cryptanalyse de Vigenère
 
 ## 📌 Description
 
-Ce projet consiste en l’implémentation en Python de l’algorithme de chiffrement et de déchiffrement de Vigenère, une méthode de cryptographie classique basée sur un chiffrement par substitution polyalphabétique.
+Ce projet implémente l’algorithme de chiffrement de Vigenère ainsi que plusieurs méthodes de cryptanalyse permettant de retrouver la clé et le message original à partir d’un texte chiffré.
 
-L’objectif est de comprendre les principes fondamentaux du chiffrement symétrique ainsi que les limites de sécurité de ce type d’algorithme.
+Il s’inscrit dans un cadre pédagogique visant à comprendre les principes de la cryptographie classique et les faiblesses des chiffrements polyalphabétiques.
 
 ---
 
 ## ⚙️ Fonctionnalités
 
-* 🔑 Chiffrement d’un message à l’aide d’une clé
-* 🔓 Déchiffrement du message
-* Normalisation du texte (majuscules/minuscules)
-* Traitement automatique de la clé (répétition)
+* 🔑 Chiffrement et déchiffrement de Vigenère
+* 🔍 Analyse de texte chiffré
+* 📊 Calcul d’indices de coïncidence (IC)
+* 🔄 Analyse des décalages
+* 🧠 Cryptanalyse progressive (plusieurs versions)
 
 ---
 
-## 🛠️ Technologies utilisées
+## 📁 Structure du projet
 
-* Python 3
+* `test-*.py` : scripts de test et d’expérimentation
+* `data/` :
+
+  * fichiers `.cipher` : textes chiffrés
+  * fichiers `.plain` : textes en clair
+  * fichiers `.key` : clés associées
+* `test-all.sh` : script pour exécuter l’ensemble des tests
 
 ---
 
@@ -32,24 +39,31 @@ git clone https://github.com/dalisadi/vigenere-cipher.git
 cd vigenere-cipher
 ```
 
-### 2. Lancer le programme
+### 2. Lancer les tests
+
+Exécuter un script spécifique :
 
 ```bash
-python main.py
+python test-4-decalages.py
 ```
 
-### 3. Exemple
+Ou lancer tous les tests :
 
-```python
-message = "HELLO WORLD"
-key = "KEY"
-
-encrypted = encrypt(message, key)
-print(encrypted)
-
-decrypted = decrypt(encrypted, key)
-print(decrypted)
+```bash
+bash test-all.sh
 ```
+
+---
+
+## 🧪 Contenu technique
+
+Le projet couvre plusieurs aspects de la cryptanalyse :
+
+* Calcul de l’indice de coïncidence pour estimer la longueur de la clé
+* Analyse des fréquences de lettres
+* Détection des décalages (type César)
+* Reconstruction progressive de la clé
+* Déchiffrement automatique du texte
 
 ---
 
@@ -58,16 +72,18 @@ print(decrypted)
 * Cryptographie classique
 * Chiffrement symétrique
 * Algorithme de Vigenère
-* Manipulation de chaînes de caractères en Python
+* Analyse fréquentielle
+* Cryptanalyse
 
 ---
 
 ## ⚠️ Limites de sécurité
 
-Le chiffrement de Vigenère n’est pas sécurisé face aux attaques modernes :
+Le chiffrement de Vigenère est vulnérable aux techniques de cryptanalyse :
 
-* Vulnérable aux attaques par analyse fréquentielle
-* Faible face aux attaques par clé répétée
+* Analyse fréquentielle
+* Détection de la longueur de clé
+* Attaques statistiques
 
 Ce projet est donc à but pédagogique.
 
@@ -75,10 +91,10 @@ Ce projet est donc à but pédagogique.
 
 ## 🎯 Objectifs du projet
 
-* Comprendre les bases de la cryptographie
 * Implémenter un algorithme de chiffrement
-* Manipuler des chaînes et structures en Python
-* Développer une logique algorithmique
+* Comprendre les faiblesses des systèmes classiques
+* Appliquer des méthodes de cryptanalyse
+* Manipuler des données textuelles et statistiques
 
 ---
 
